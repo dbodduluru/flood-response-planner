@@ -22,5 +22,5 @@ G’day! This is a clever AI crew that whips up disaster response plans—watchi
 ## Try It Out
 1. **Grab It**:
    ```bash
-   git clone https://github.com/dbh/flood-response-planner.git
+   git clone https://github.com/dbodduluru/flood-response-planner.git
    cd flood-response-planner
