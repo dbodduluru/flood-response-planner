@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flood Response Planner</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Flood Response Planner</h1>
+    <p>Watch the AI crew plan evacuations—click to approve!</p>
+    <div id="data-display">
+        <p>Rainfall: <span id="rainfall">{{ initial_data.rainfall }}mm</span></p>
+        <p>Flood Zone: <span id="flood_zone">{{ initial_data.flood_zone }}</span></p>
+        <p>Road Status: <span id="road_status">{{ initial_data.road_status }}</span></p>
+        <p>Draft Plan: <span id="draft_plan">{{ initial_data.plan }}</span></p>
+        <p>Active Plan: <span id="plan">{{ initial_data.plan }}</span></p>
+    </div>
+    <div id="risks"></div>
+    <button id="approve-btn" disabled>Approve Plan</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

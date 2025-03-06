@@ -1,0 +1,5 @@
+Mock flood data for Flood Response Planner to monitor:
+
+- Rainfall: "Starting at 50mm, heavy storms possible."
+- Flood Zone: "Starting at None, updates with rain."
+- Road Status: "Starting at Clear, may close with floods."
