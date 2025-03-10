@@ -18,6 +18,37 @@
     <div id="risks"></div>
     <button id="approve-btn" disabled>Approve Plan</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
-    <script src="/static/script.js"></script>
+    <script>
+        const socket = io();
+        let currentDraftPlan = null;
+
+        socket.on('update_data', function(data) {
+            document.getElementById('rainfall').innerText = data.env.rainfall + 'mm';
+            document.getElementById('flood_zone').innerText = data.env.flood_zone;
+            document.getElementById('road_status').innerText = data.env.road_status;
+            document.getElementById('draft_plan').innerText = data.draft_plan.join(', ');
+            document.getElementById('plan').innerText = data.env.plan || 'None';
+            document.getElementById('risks').innerText = 'Risks: ' + data.risks.join(', ');
+
+            // Enable approve button if there's a draft plan and not approved
+            currentDraftPlan = data.draft_plan;
+            const approveBtn = document.getElementById('approve-btn');
+            approveBtn.disabled = data.env.approved || !currentDraftPlan.length;
+            console.log('Update received:', data);  // Debug
+        });
+
+        socket.on('update_plan', function(data) {
+            document.getElementById('plan').innerText = data.plan.join(', ');
+            document.getElementById('approve-btn').disabled = true;
+            console.log('Plan approved:', data);  // Debug
+        });
+
+        document.getElementById('approve-btn').addEventListener('click', function() {
+            if (currentDraftPlan) {
+                socket.emit('approve_plan', { draft_plan: currentDraftPlan });
+                this.disabled = true;
+            }
+        });
+    </script>
 </body>
 </html>
