@@ -2,7 +2,7 @@
 
 G’day! This is a clever AI crew that whips up disaster response plans—watching mock flood data, crafting evac routes, and tweaking them as things change. Built to show off next-gen intelligent agents!
 
-![Demo Screenshot](demo_screenshot.png)  
+![Demo Screenshot](demo_screenshot.png)  ![alt text](image.png)
 *See live flood data—tap “Approve Plan” to roll out evac routes!*
 
 ## What It Does
